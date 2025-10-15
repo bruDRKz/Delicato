@@ -1,7 +1,17 @@
+using DelicatoProject.Aplicacao.Interfaces;
+using DelicatoProject.Aplicacao.Services;
+using DelicatoProject.Infraestrutura.Interfaces;
+using DelicatoProject.Infraestrutura.Repositories;
+using DelicatoProject.Models.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DelicatoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 var app = builder.Build();
 

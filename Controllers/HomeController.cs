@@ -1,6 +1,6 @@
-using System.Diagnostics;
 using DelicatoProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace DelicatoProject.Controllers
 {
@@ -16,12 +16,7 @@ namespace DelicatoProject.Controllers
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        }        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
