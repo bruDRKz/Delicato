@@ -25,6 +25,6 @@ publish/
 .DS_Store
 Thumbs.db
 
-# Secrets (caso tenha)
+# Secrets 
 appsettings.Development.json
-appsettings.Local.json
+appsettings.json
