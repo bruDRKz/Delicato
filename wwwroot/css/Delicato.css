@@ -1,0 +1,357 @@
+﻿/* ====== RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #0a0a0a;
+}
+
+/* ====== HEADER ====== */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 60px;
+    z-index: 10;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 28px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+    .nav-link:hover {
+        background: #efb73d;
+        color: #000;
+        border-color: #efb73d;
+    }
+
+.btn-reservar {
+    background: #fff;
+    color: #000;
+    border: 2px solid transparent;
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .btn-reservar:hover {
+        background: #efb73d;
+        border-color: #efb73d;
+    }
+
+/* ====== HERO SECTION ====== */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 994px;
+    position: relative;
+    height: 100vh; /* altura total da tela */
+    overflow: hidden;
+
+}
+
+.hero-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.discordapp.com/attachments/1377088296622231604/1428626727722156114/urquell.png?ex=68f32fd2&is=68f1de52&hm=1eccf7c4712d30989ace11f76d6461ac94c0971a9052d8eb6781d40157163429&");
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+}
+
+/* ====== CONTEÚDO PRINCIPAL ====== */
+.main-content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper {
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.3;
+    color: #fff;
+}
+
+.italic {
+    color: #efb73d;
+    font-style: italic;
+}
+
+/* Barra de rolagem estilizada */
+::-webkit-scrollbar {
+    width: 10px;
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #EFB73D; /* amarelo da Delicato */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(217, 119, 6, 0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #fbbf24; /* amarelo mais claro no hover */
+        box-shadow: 0 0 14px rgba(251, 191, 36, 0.8);
+    }
+
+/* ====== LOGO CENTRAL ====== */
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-image {
+    width: 630px;
+    height: 630px;
+    object-fit: contain;
+}
+
+
+/* ====== MOUSE ANIMADO ====== */
+/* ===== ÍCONE SCROLL ANIMADO ===== */
+.mouse-scroll {
+    position: absolute; /* relativo à hero-container */
+    bottom: 40px; /* fixa na parte de baixo do hero */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeInScroll 1.5s ease forwards;
+}
+
+/* Corpo do mouse */
+.mouse {
+    width: 28px;
+    height: 45px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    position: relative;
+}
+
+/* Rodinha animada */
+.wheel {
+    width: 5px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-wheel 1.5s infinite;
+}
+
+/* Animação da rodinha */
+@keyframes scroll-wheel {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+}
+
+/* Fade suave ao aparecer */
+@keyframes fadeInScroll {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+
+/* ====== INSTAGRAM ====== */
+.instagram-button {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+}
+
+.instagram-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+/* ====== SEÇÃO LARANJA ====== */
+.taps-section {
+    width: 100%;
+    height: 581px;
+    background-color: #d06D00;
+    background-image: url("https://cdn.discordapp.com/attachments/1377088296622231604/1428626727252529192/pattern_trigo_1_1.png?ex=68f32fd2&is=68f1de52&hm=16d1ba2c9d1a5ed12710206ac3daed15a31f09b0578655138c83e93f19b0b90a&");
+    background-repeat: repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+}
+
+.taps-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    gap: 100px;
+}
+
+.taps-text {
+    flex: 1;
+    max-width: 698px;
+}
+
+.taps-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 55px;
+}
+
+.taps-description {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.8;
+}
+
+.taps-image {
+    width: 480px; /* largura fixa parecida com o design */
+    max-width: 40%; /* responsivo: não extrapola em telas pequenas */
+    height: 560px; /* altura definida para manter composição */
+    
+    border-radius: 24px; /* cantos arredondados como no exemplo */
+    box-shadow: 0 6px 20px rgba(0,0,0,0); /* leve sombra para destacar */
+    flex-shrink: 0; /* evita que o container encolha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    margin-right: -220px;
+}
+
+    /* imagem dentro do container — preenche e corta sem distorcer */
+    .taps-image img {
+        width: 100%;
+        height: 100%;
+        
+        display: block;
+      
+    }
+
+
+/* ====== FOOTER ====== */
+.footer {
+    background-color: #111;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    border-top: 2px solid #222;
+}
+
+    .footer .brand {
+        color: #d97706;
+        font-weight: 600;
+    }
+
+    .footer a {
+        color: #d97706;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
