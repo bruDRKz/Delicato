@@ -329,6 +329,135 @@ body {
       
     }
 
+/* ====== SEÇÃO CARDÁPIO ====== */
+
+.cardap-section {
+    width: 100%;
+    height: 581px;
+    background-repeat: repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+}
+
+.cardap-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    gap: 100px;
+}
+
+.cardap-text {
+    flex: 1;
+    max-width: 698px;
+    text-align: right;
+}
+
+.cardap-description {
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.8;
+}
+
+.cardap-image {
+    width: 480px;
+    max-width: 40%; 
+    height: 480px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0); 
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    margin-left: -220px;
+}
+
+.cardap-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.cardap-link {
+    font-size: 3.0rem;
+    font-weight: bold;
+    color: #d97706;
+}
+
+a:link {
+    color: #d97706;
+}
+
+
+
+/* ====== SOBRE NÓS ====== */
+
+.sobre-section {
+    width: 100%;
+    height: 581px;
+    background-color: #fff;
+    background-repeat: repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+}
+
+.sobre-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    gap: 100px;
+}
+
+.sobre-text {
+    flex: 1;
+    max-width: 698px;
+    text-align: left;
+}
+
+.sobre-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 55px;
+}
+
+.sobre-description {
+    font-size: 30px;
+    color: #000;
+    line-height: 1.8;
+}
+
+.sobre-image {
+    width: 480px; 
+    max-width: 40%; 
+    height: 480px; 
+    border-radius: 24px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0); 
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    margin-right: -220px;
+}
+
+.sobre-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+
 
 /* ====== FOOTER ====== */
 .footer {
