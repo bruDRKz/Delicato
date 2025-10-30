@@ -12,6 +12,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DelicatoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<ICardapioService, CardapioService>();
+builder.Services.AddScoped<ICardapioBebidaRepository, CardapioBebidaRepository>();
+builder.Services.AddScoped<ICardapioComidaRepository, CardapioComidaRepository>();
 
 var app = builder.Build();
 
