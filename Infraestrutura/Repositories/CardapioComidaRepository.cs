@@ -37,6 +37,12 @@ namespace DelicatoProject.Infraestrutura.Repositories
                 .ToListAsync();
         }
 
+        public async Task<CardapioComidas?> BuscaComidaPorNome(string nomeComida)
+        {
+            return await _context.CardapioComidas
+                .Where(c => c.NomeComida.ToLower() == nomeComida.ToLower())
+                .FirstOrDefaultAsync();
+        }
         public async Task<CardapioComidas?> RetornaComidaPorId(int idComida) => await _context.CardapioComidas.FindAsync(idComida);
 
     }

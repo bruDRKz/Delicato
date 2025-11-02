@@ -8,6 +8,7 @@ namespace DelicatoProject.Infraestrutura.Interfaces
         public Task AdicionarBebida(CardapioBebidas bebida);
         public Task EditarBebida(CardapioBebidas bebida);
         public Task ExcluirBebida(int bebidaId);
+        public Task<CardapioBebidas?> BuscaBebidaPorNome(string nomeBebida);
         public Task<CardapioBebidas?> RetornaBebidaPorId(int idBebida);
     }
 }

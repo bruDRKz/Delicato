@@ -1,6 +1,7 @@
 ﻿using DelicatoProject.Aplicacao.Interfaces;
 using DelicatoProject.Infraestrutura.Interfaces;
 using DelicatoProject.Models;
+using System.ComponentModel.Design;
 
 namespace DelicatoProject.Aplicacao.Services
 {
@@ -14,18 +15,81 @@ namespace DelicatoProject.Aplicacao.Services
             _cardapioComidaRepository = cardapioComidaRepository;
         }
 
-        //Bebidas
+
+        //-----------------------Bebidas-----------------------
         public async Task<List<CardapioBebidas>> ListarBebidas() => await _cardapioBebidaRepository.ListarBebidas();
-        public async Task AdicionarBebida(CardapioBebidas bebida) => await _cardapioBebidaRepository.AdicionarBebida(bebida);
-        public async Task EditarBebida(CardapioBebidas bebida) => await _cardapioBebidaRepository.EditarBebida(bebida);
-        public async Task ExcluirBebida(int bebidaId) => await _cardapioBebidaRepository.ExcluirBebida(bebidaId);
+
+        public async Task<(bool Sucesso, string Mensagem)>AdicionarBebida(CardapioBebidas bebida)
+        { 
+            CardapioBebidas? bebidaExistente = await _cardapioBebidaRepository.BuscaBebidaPorNome(bebida.NomeBebida);
+
+            if (bebidaExistente != null)
+                return (false, "Bebida ja existente no cardapio");
+            
+            await _cardapioBebidaRepository.AdicionarBebida(bebida);
+            return (true, "Bebida adicionada com sucesso");
+        }
+        public async Task<(bool Sucesso, string Mensagem)> EditarBebida(CardapioBebidas novaBebida)
+        { 
+            CardapioBebidas? bebidaExistente = await _cardapioBebidaRepository.RetornaBebidaPorId(novaBebida.IdBebida);
+            if (bebidaExistente == null)
+                return (false, "Bebida nao encontrada no cardapio");
+
+            bebidaExistente.NomeBebida = novaBebida.NomeBebida;
+            bebidaExistente.DescricaoBebida = novaBebida.DescricaoBebida;
+            bebidaExistente.Preco = novaBebida.Preco;
+            bebidaExistente.IdCategoria = novaBebida.IdCategoria;
+            bebidaExistente.ImagemUrl = novaBebida.ImagemUrl;
+            bebidaExistente.Disponivel = novaBebida.Disponivel;
+            await _cardapioBebidaRepository.EditarBebida(bebidaExistente);
+            return (true, "Bebida editada com sucesso");
+        }
+        public async Task<(bool Sucesso, string Mensagem)> ExcluirBebida(int bebidaId)
+        {
+            CardapioBebidas? bebidaExistente = await _cardapioBebidaRepository.RetornaBebidaPorId(bebidaId);
+            if (bebidaExistente == null)
+                return (false, "Bebida nao encontrada no cardapio");
+            await _cardapioBebidaRepository.ExcluirBebida(bebidaId);
+            return (true, "Bebida excluida com sucesso");
+        }
+
         public async Task<CardapioBebidas?> RetornaBebidaPorId(int idBebida) => await _cardapioBebidaRepository.RetornaBebidaPorId(idBebida);
 
-        //Comidas
+
+        //-----------------------Comidas-----------------------
         public async Task<List<CardapioComidas>> ListarComidas() => await _cardapioComidaRepository.ListarComidas();
-        public async Task AdicionarComida(CardapioComidas comida) => await _cardapioComidaRepository.AdicionarComida(comida);
-        public async Task EditarComida(CardapioComidas comida) => await _cardapioComidaRepository.EditarComida(comida);
-        public async Task ExcluirComida(int comidaId) => await _cardapioComidaRepository.ExcluirComida(comidaId);
+
+        public async Task<(bool Sucesso, string Mensagem)> AdicionarComida(CardapioComidas comida)
+        {
+            CardapioComidas? comidaExistente = await _cardapioComidaRepository.BuscaComidaPorNome(comida.NomeComida);
+            if (comidaExistente != null)
+                return (false, "Comida ja existente no cardapio");
+            await _cardapioComidaRepository.AdicionarComida(comida);
+            return (true, "Comida adicionada com sucesso");
+        }
+        public async Task<(bool Sucesso, string Mensagem)> EditarComida(CardapioComidas novaComida)
+        {
+            CardapioComidas? comidaExistente = await _cardapioComidaRepository.RetornaComidaPorId(novaComida.IdComida);
+            if (comidaExistente == null)
+                return (false, "Comida nao encontrada no cardapio");
+            comidaExistente.NomeComida = novaComida.NomeComida;
+            comidaExistente.DescricaoComida = novaComida.DescricaoComida;
+            comidaExistente.Preco = novaComida.Preco;
+            comidaExistente.IdCategoria = novaComida.IdCategoria;
+            comidaExistente.ImagemUrl = novaComida.ImagemUrl;
+            comidaExistente.Disponivel = novaComida.Disponivel;
+            await _cardapioComidaRepository.EditarComida(comidaExistente);
+            return (true, "Comida editada com sucesso");
+        }
+        public async Task<(bool Sucesso, string Mensagem)> ExcluirComida(int comidaId)
+        {
+            CardapioComidas? comidaExistente = await _cardapioComidaRepository.RetornaComidaPorId(comidaId);
+            if (comidaExistente == null)
+                return (false, "Comida nao encontrada no cardapio");
+            await _cardapioComidaRepository.ExcluirComida(comidaId);
+            return (true, "Comida excluida com sucesso");
+        }
+
         public async Task<CardapioComidas?> RetornaComidaPorId(int idComida) => await _cardapioComidaRepository.RetornaComidaPorId(idComida);
 
     }
