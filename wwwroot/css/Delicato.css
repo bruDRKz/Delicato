@@ -87,7 +87,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url("https://cdn.discordapp.com/attachments/1377088296622231604/1428626727722156114/urquell.png?ex=68f32fd2&is=68f1de52&hm=1eccf7c4712d30989ace11f76d6461ac94c0971a9052d8eb6781d40157163429&");
+    background-image: url("/assets/imagens/urquell.png");
     background-position: center;
     background-size: cover;
 }
@@ -269,7 +269,7 @@ body {
     width: 100%;
     height: 581px;
     background-color: #d06D00;
-    background-image: url("https://cdn.discordapp.com/attachments/1377088296622231604/1428626727252529192/pattern_trigo_1_1.png?ex=68f32fd2&is=68f1de52&hm=16d1ba2c9d1a5ed12710206ac3daed15a31f09b0578655138c83e93f19b0b90a&");
+    background-image: url("/assets/imagens/pattern_trigo_1_1.png");
     background-repeat: repeat;
     background-position: center;
     display: flex;

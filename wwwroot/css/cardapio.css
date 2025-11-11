@@ -1,0 +1,249 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #EFB73D, #D06D00);
+    color: #fff;
+}
+
+
+/* ==================== ESTRUTURA GERAL ==================== */
+main {
+    padding: 30px;
+}
+
+.cardapio {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.card {
+    position: relative;
+    background: #111;
+    color: #fff;
+    border-radius: 35px;
+    width: 100%;
+    max-width: 1497px;
+    box-shadow: 0 8px 16px rgb(0, 0, 0);
+    padding: 30px;
+    overflow: visible;
+}
+
+/* ==================== COMIDAS ==================== */
+.cardapio.comidas .card {
+    height: 1595px;
+    padding-top: 300px;
+}
+
+.cardapio.comidas .logo-card {
+    position: absolute;
+    top: 20px; /* distância do topo do card */
+    left: 30px; /* distância da lateral esquerda */
+    width: 201px; /* largura da logo */
+    height: 201px; /* altura da logo */
+    border-radius: 60px; /* bordas arredondadas */
+    object-fit: cover; /* garante que a imagem se ajuste bem */
+}
+
+
+.cardapio.comidas .card h2 {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ==================== GRID DE COMIDAS ==================== */
+.menus-comidas {
+    display: grid;
+    grid-template-columns: 621px 621px;
+    justify-content: center;
+    gap: 70px 40px;
+}
+
+/* ==================== ESTILO PADRÃO DOS CARDS ==================== */
+.menu-coluna {
+    position: relative;
+    background: #111;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 50px 20px 20px;
+    box-sizing: border-box;
+    color: #fff;
+    overflow: visible;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+
+    /* título sobre a linha branca */
+    .menu-coluna h3 {
+        position: absolute;
+        top: -65px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #d68023;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        font-size: 36px;
+        padding: 6px 40px;
+        border-radius: 6px;
+        z-index: 2;
+        width: 70%;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+    .menu-coluna ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-coluna li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 30px;
+        margin: 8px 0;
+    }
+
+/* ==================== TAMANHOS COMIDAS ==================== */
+.menu-espetos-trad {
+    width: 621px;
+    height: 611px;
+}
+
+.menu-porcoes {
+    width: 621px;
+    height: 285px;
+}
+
+.menu-espetos-esp {
+    width: 621px;
+    height: 460px;
+}
+
+.menu-lanches {
+    width: 621px;
+    height: 363px;
+}
+
+/* ==================== BEBIDAS ==================== */
+.cardapio.bebidas .card {
+    height: 1775px;
+    padding-top: 300px;
+}
+
+.cardapio.bebidas .logo-card {
+    position: absolute;
+    top: 20px; /* distância do topo do card */
+    left: 30px; /* distância da lateral esquerda */
+    width: 201px; /* largura da logo */
+    height: 201px; /* altura da logo */
+    border-radius: 60px; /* bordas arredondadas */
+    object-fit: cover; /* garante que a imagem se ajuste bem */
+}
+
+
+.cardapio.bebidas .card h2 {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ==================== LAYOUT EM DUAS COLUNAS (BEBIDAS) ==================== */
+.menus-bebidas {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.coluna-esquerda,
+.coluna-direita {
+    width: 621px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+/* ==================== TAMANHOS BEBIDAS ==================== */
+.menu-nao-alcoolicos {
+    width: 621px;
+    height: 400px;
+}
+
+.menu-doses {
+    width: 621px;
+    height: 400px;
+}
+
+.menu-cervejas {
+    width: 621px;
+    height: 285px;
+}
+
+.menu-drinks {
+    width: 621px;
+    height: 314px;
+}
+
+.menu-caipirinhas {
+    width: 621px;
+    height: 265px;
+}
+
+
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 1350px) {
+    .menus-comidas {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .menus-bebidas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-coluna {
+        width: 90% !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .btn-reservar {
+        margin-top: 10px;
+    }
+
+    .card h2 {
+        font-size: 26px;
+        top: 110px;
+    }
+
+    .logo-card {
+        width: 80px;
+    }
+
+    .carrossel-inner img {
+        width: 100%;
+        height: auto;
+    }
+}
