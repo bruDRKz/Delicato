@@ -12,5 +12,20 @@ namespace DelicatoProject.Models.Context
         public DbSet<CardapioBebidas> CardapioBebidas { get; set; }
         public DbSet<Avaliacao> Avaliacao { get; set; }
         public DbSet<Categorias> Categorias { get; set; }
+        public DbSet<ReservasBloqueio> ReservasBloqueio { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CardapioComidas>()
+                .HasOne(c => c.Categoria)
+                .WithMany()
+                .HasForeignKey(c => c.IdCategoria);
+
+            modelBuilder.Entity<CardapioBebidas>()
+                .HasOne(b => b.Categoria)
+                .WithMany()
+                .HasForeignKey(b => b.IdCategoria);
+        }
+
     }
 }

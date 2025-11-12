@@ -15,7 +15,8 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICardapioService, CardapioService>();
 builder.Services.AddScoped<ICardapioBebidaRepository, CardapioBebidaRepository>();
 builder.Services.AddScoped<ICardapioComidaRepository, CardapioComidaRepository>();
-
+builder.Services.AddScoped<IReservasRepository, ReservasRepository>();
+builder.Services.AddScoped<IReservasService, ReservasService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
