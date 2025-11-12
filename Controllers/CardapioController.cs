@@ -12,6 +12,11 @@ namespace DelicatoProject.Controllers
             _cardapioService = cardapioService;
         }
 
+        public IActionResult CardapioCompleto()
+        {
+            return View("Cardapio");
+        }
+
         [HttpGet]
         public async Task<IActionResult> ListarBebidas()
         {
@@ -21,7 +26,7 @@ namespace DelicatoProject.Controllers
                 return Ok(bebidas);
                 //Retorna um status 200 com a lista de bebidas no corpo da resposta
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 throw new Exception(e.Message);
             }
