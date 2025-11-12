@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DelicatoProject.Migrations
 {
     [DbContext(typeof(DelicatoContext))]
-    [Migration("20251011201251_ModelosFinais")]
-    partial class ModelosFinais
+    [Migration("20251105233738_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace DelicatoProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdBebida"));
 
-                    b.Property<int>("CategoriaIdCategoria")
+                    b.Property<int?>("CategoriasIdCategoria")
                         .HasColumnType("int");
 
                     b.Property<string>("DescricaoBebida")
@@ -73,9 +73,8 @@ namespace DelicatoProject.Migrations
                     b.Property<bool>("Disponivel")
                         .HasColumnType("bit");
 
-                    b.Property<string>("IdCategoria")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IdCategoria")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagemUrl")
                         .IsRequired()
@@ -90,7 +89,9 @@ namespace DelicatoProject.Migrations
 
                     b.HasKey("IdBebida");
 
-                    b.HasIndex("CategoriaIdCategoria");
+                    b.HasIndex("CategoriasIdCategoria");
+
+                    b.HasIndex("IdCategoria");
 
                     b.ToTable("CardapioBebidas");
                 });
@@ -103,7 +104,7 @@ namespace DelicatoProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdComida"));
 
-                    b.Property<int>("CategoriaIdCategoria")
+                    b.Property<int?>("CategoriasIdCategoria")
                         .HasColumnType("int");
 
                     b.Property<string>("DescricaoComida")
@@ -113,9 +114,8 @@ namespace DelicatoProject.Migrations
                     b.Property<bool>("Disponivel")
                         .HasColumnType("bit");
 
-                    b.Property<string>("IdCategoria")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IdCategoria")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagemUrl")
                         .IsRequired()
@@ -130,7 +130,9 @@ namespace DelicatoProject.Migrations
 
                     b.HasKey("IdComida");
 
-                    b.HasIndex("CategoriaIdCategoria");
+                    b.HasIndex("CategoriasIdCategoria");
+
+                    b.HasIndex("IdCategoria");
 
                     b.ToTable("CardapioComidas");
                 });
@@ -200,6 +202,35 @@ namespace DelicatoProject.Migrations
                     b.ToTable("Reservas");
                 });
 
+            modelBuilder.Entity("DelicatoProject.Models.ReservasBloqueio", b =>
+                {
+                    b.Property<int>("IdReservaBloqueio")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdReservaBloqueio"));
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CriadoEm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataBloqueio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MotivoBloqueio")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("IdReservaBloqueio");
+
+                    b.ToTable("ReservasBloqueio");
+                });
+
             modelBuilder.Entity("DelicatoProject.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -246,9 +277,13 @@ namespace DelicatoProject.Migrations
 
             modelBuilder.Entity("DelicatoProject.Models.CardapioBebidas", b =>
                 {
-                    b.HasOne("DelicatoProject.Models.Categorias", "Categoria")
+                    b.HasOne("DelicatoProject.Models.Categorias", null)
                         .WithMany("cardapioBebidas")
-                        .HasForeignKey("CategoriaIdCategoria")
+                        .HasForeignKey("CategoriasIdCategoria");
+
+                    b.HasOne("DelicatoProject.Models.Categorias", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("IdCategoria")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -257,9 +292,13 @@ namespace DelicatoProject.Migrations
 
             modelBuilder.Entity("DelicatoProject.Models.CardapioComidas", b =>
                 {
-                    b.HasOne("DelicatoProject.Models.Categorias", "Categoria")
+                    b.HasOne("DelicatoProject.Models.Categorias", null)
                         .WithMany("cardapioComidas")
-                        .HasForeignKey("CategoriaIdCategoria")
+                        .HasForeignKey("CategoriasIdCategoria");
+
+                    b.HasOne("DelicatoProject.Models.Categorias", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("IdCategoria")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
