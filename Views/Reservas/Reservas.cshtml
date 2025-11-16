@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Reservas - DELICATO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/reserva.css">
+
+<main>
+    <div class="form-container">
+        <h2>Faça sua reserva:</h2>
+
+        <form>
+            <label>Nome</label>
+            <input type="text" placeholder="Digite seu nome">
+
+            <label>Contato(telefone ou email):</label>
+            <input type="email" placeholder="Digite o contato">
+
+        </form>
+
+        <label>Informe a quantidade de pessoas:</label>
+        <select>
+            <option value="" selected>Nº de Pessoas</option>
+            <option>1 pessoa</option>
+            <option>2 pessoas</option>
+            <option>3 pessoas</option>
+            <option>4 pessoas</option>
+            <option>5 pessoas</option>
+            <option>6 pessoas</option>
+            <option>7 pessoas</option>
+            <option>8 pessoas</option>
+            <option>9 pessoas</option>
+        </select>
+
+        <label>Informe a data:</label>
+        <input type="datetime-local"
+               id="meeting-time"
+               name="meeting-time"
+               value="2018-06-12T19:30"
+               min="2018-06-07T00:00"
+               max="2018-06-14T00:00" />
+
+        <label>Observações</label>
+        <input type="tel" placeholder="Digite uma observação">
+
+        <button class="btn">Confirmar</button>
+    </div>
+</main>
