@@ -71,22 +71,6 @@ body {
         border-color: #efb73d;
     }
 
-.btn-mreservar {
-    background-color: rgba(0, 0, 0, 0); 
-    border: 1px solid black; 
-    color: #fff;
-    border: 2px solid transparent;
-    padding: 10px 28px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-    .btn-mreservar:hover {
-        color: #efb73d;
-    }
-
 /* ====== HERO SECTION ====== */
 .hero-container {
     position: relative;
