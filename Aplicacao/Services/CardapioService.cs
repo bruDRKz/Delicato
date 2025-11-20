@@ -1,4 +1,5 @@
-﻿using DelicatoProject.Aplicacao.Interfaces;
+﻿using DelicatoProject.Aplicacao.DTOs.Cardapio;
+using DelicatoProject.Aplicacao.Interfaces;
 using DelicatoProject.Infraestrutura.Interfaces;
 using DelicatoProject.Models;
 using System.ComponentModel.Design;
@@ -13,6 +14,40 @@ namespace DelicatoProject.Aplicacao.Services
         {
             _cardapioBebidaRepository = cardapioBebidaRepository;
             _cardapioComidaRepository = cardapioComidaRepository;
+        }
+
+        //-----------------------Cardapio completo-----------------------
+        public async Task<CardapioCompletoDTO> ObterCardapioCompleto()
+        {
+            var bebidas = await _cardapioBebidaRepository.ListarBebidas();
+            var comidas = await _cardapioComidaRepository.ListarComidas();
+
+            var dtoCompleta = new CardapioCompletoDTO
+            {
+                BebidasDTO = bebidas.Select(b => new CardapioBebidaDTO
+                {
+                    IdBebida = b.IdBebida,
+                    NomeBebida = b.NomeBebida,
+                    DescricaoBebida = b.DescricaoBebida,
+                    Preco = b.Preco,
+                    IdCategoria = b.IdCategoria,
+                    ImagemUrl = b.ImagemUrl,
+                    Disponivel = b.Disponivel
+                }).ToList(),
+
+                ComidasDTO = comidas.Select(c => new CardapioComidaDTO
+                {
+                    IdComida = c.IdComida,
+                    NomeComida = c.NomeComida,
+                    DescricaoComida = c.DescricaoComida,
+                    Preco = c.Preco,
+                    IdCategoria = c.IdCategoria,
+                    ImagemUrl = c.ImagemUrl,
+                    Disponivel = c.Disponivel
+                }).ToList()
+            };
+
+            return dtoCompleta;
         }
 
 

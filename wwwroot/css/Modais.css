@@ -1,0 +1,288 @@
+﻿/* CSS compartilhado */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.70);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background: #17181c;
+    border-radius: 10px;
+    padding: 32px 24px;
+    min-width: 320px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 2rem;
+    color: #efb73d;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Estilos para o modal de avaliação */
+.card-avaliacao .titulo {
+    font-family: var(--fonte);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.avaliacao-form label {
+    display: block;
+    margin-bottom: 18px;
+    font-family: var(--fonte);
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.avaliacao-form input[type="text"],
+.avaliacao-form textarea {
+    width: 100%;
+    padding: 9px 10px;
+    margin-top: 12px;
+    font-family: var(--fonte);
+    font-size: 1.05rem;
+    border: 1px solid #343640;
+    border-radius: 6px;
+    background: #23242a;
+    color: #f4f4f4;
+}
+.avaliacao-form textarea {
+    height: 70px;
+    resize: vertical;
+}
+
+.estrelas {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+    .estrelas span {
+        font-size: 1.7rem;
+        color: #e2e2e2;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+        .estrelas span.selecionada {
+            color: #efb73d;
+        }
+
+.btn-enviar {
+    padding: 11px 0;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    font-family: var(--fonte);
+    font-weight: 700;
+    font-size: 1.08rem;
+    color: #fff;
+    background: #efb73d;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+    .btn-enviar:hover {
+        background: #c2902c;
+        color: #fff;
+    }
+
+/* Estilos para o modal de reserva */
+.form-container h2 {
+    font-family: var(--fonte);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--fonte);
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.form-container input[type="text"],
+.form-container input[type="tel"],
+.form-container select,
+.form-container input[type="datetime-local"]{
+    width: 100%;
+    padding: 9px 10px;
+    margin-bottom: 16px;
+    font-family: var(--fonte);
+    font-size: 1.05rem;
+    border: 1px solid #343640;
+    border-radius: 6px;
+    background: #23242a;
+    color: #f4f4f4;
+}
+
+.form-container button.btn {
+    padding: 11px 0;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    font-family: var(--fonte);
+    font-weight: 700;
+    font-size: 1.08rem;
+    color: #fff;
+    background: #efb73d;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+    .form-container button.btn:hover {
+        background: #c2902c;
+        color: #fff;
+    }
+
+.swal2-container {
+    z-index: 2000 !important;
+}
+
+/*Modal de login*/
+
+.login-form input[type="password"],
+.login-form input[type="tel"] {
+    width: 100%;
+    padding: 9px 10px;
+    margin-top: 12px;
+    font-family: var(--fonte);
+    font-size: 1.05rem;
+    border: 1px solid #343640;
+    border-radius: 6px;
+    background: #23242a;
+    color: #f4f4f4;
+}
+
+.card-login {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.titulo {
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.btn-enviar {
+    background-color: #facc15;
+    color: #ffff;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: background 0.3s;
+}
+
+    .btn-enviar:hover {
+        background-color: #ffff;
+    }
+
+/*Modal de visualizar Reservas*/
+
+
+
+
+.card-lista-reservas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#listaReservasConteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.reserva-item {
+    background: #23242a;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.reserva-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #f4f4f4;
+    font-size: 1rem;
+}
+
+.reserva-titulo {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.reserva-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-cancelar {
+    background-color: #b91c1c;
+    color: #fff8e1;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .btn-cancelar:hover {
+        background-color: #a31a1a;
+    }
+
+.btn-concluir {
+    background-color: #facc15;
+    color: #18181b;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .btn-concluir:hover {
+        background-color: #efb73d;
+    }

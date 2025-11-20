@@ -1,9 +1,11 @@
-﻿using DelicatoProject.Models;
+﻿using DelicatoProject.Aplicacao.DTOs.Cardapio;
+using DelicatoProject.Models;
 
 namespace DelicatoProject.Aplicacao.Interfaces
 {
     public interface ICardapioService
     {
+        public Task<CardapioCompletoDTO> ObterCardapioCompleto();
         public Task<List<CardapioBebidas>> ListarBebidas();
         public Task<(bool Sucesso, string Mensagem)> AdicionarBebida(CardapioBebidas bebida);
         public Task<(bool Sucesso, string Mensagem)> EditarBebida(CardapioBebidas bebida);

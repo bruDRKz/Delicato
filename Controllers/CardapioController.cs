@@ -12,9 +12,23 @@ namespace DelicatoProject.Controllers
             _cardapioService = cardapioService;
         }
 
-        public IActionResult CardapioCompleto()
+        public IActionResult Cardapio()
         {
             return View("Cardapio");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ListarCardapioCompleto()
+        {
+            try
+            {
+                var cardapioCompleto = await _cardapioService.ObterCardapioCompleto();
+                return Ok(cardapioCompleto);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         [HttpGet]

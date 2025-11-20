@@ -21,7 +21,7 @@
                 HoraReserva = this.HoraReserva,
                 NumeroPessoas = this.NumeroPessoas,
                 Contato = this.ContatoReserva,
-                Observacoes = this.Observacoes
+                Observacoes = this.Observacoes ?? "sem observações"
             };
         }
 

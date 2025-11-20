@@ -15,5 +15,23 @@ namespace DelicatoProject.Aplicacao.Services
         {
             _usuarioRepository.AdicionarUsuario(usuario);
         }
+        public (bool Existe, int? Id) JaExisteUsuarioComTelefone(string telefone)
+        {
+            var usuarioExiste = _usuarioRepository.JaExisteUsuarioComTelefone(telefone);
+
+            if (usuarioExiste.Existe)
+                return (true, usuarioExiste.Id);
+            else
+                return (false, null);
+        }
+
+        public (bool Autenticado, int? Id) AutenticarUsuario(string telefone, string senha)
+        { 
+            var autenticacao = _usuarioRepository.AutenticarUsuario(telefone, senha);
+            if (autenticacao.Autenticado)
+                return (true, autenticacao.Id);
+            
+            return (false, null);
+        }
     }
 }

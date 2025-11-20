@@ -64,16 +64,16 @@ namespace DelicatoProject.Infraestrutura.Repositories
                 .Where(r => r.IdUsuario == idUsuario)
                 .ToListAsync();
         }
-        public async Task<Reservas?> ObterReservaPorDataEUsuario(DateTime data, int idUsuario)
+        public async Task<Reservas?> ObterReservaPorDataEUsuario(string data, int idUsuario)
         {
             return  await _context.Reservas
-                .Where(r => r.DataReserva == data.ToString("dd/MM/yyyy") && r.IdUsuario == idUsuario)
+                .Where(r => r.DataReserva == data && r.IdUsuario == idUsuario)
                 .FirstOrDefaultAsync();
         }
-        public async Task<bool> DataEstaBloqueada(DateTime data)
+        public async Task<bool> DataEstaBloqueada(string data)
         { 
             return await _context.ReservasBloqueio
-                .AnyAsync(b => b.DataBloqueio == data.ToString("dd/MM/yyyy") && b.Ativo);
+                .AnyAsync(b => b.DataBloqueio == data && b.Ativo);
         }
         public async Task BloquearDataReserva(ReservasBloqueio reservasBloqueio)
         {

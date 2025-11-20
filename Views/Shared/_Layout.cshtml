@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Delicato Tap House</title>
     <link rel="stylesheet" href="~/css/delicato.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Modais.css"/>
+    <link rel="stylesheet" href="~/css/HeaderFooterPersonalizados.css"/>
 </head>
 <body>
     <!-- HEADER -->
@@ -14,21 +16,27 @@
 
             <div class="nav-menu">
                 <a class="nav-link" asp-controller="Home" asp-action="Index">Início</a>
-                <a class="nav-link" asp-controller="Cardapio" asp-action="CardapioCompleto">Cardápio</a>
-                <a href="#sobre" class="nav-link">Sobre</a>
+                <a class="nav-link" asp-controller="Cardapio" asp-action="Cardapio">Cardápio</a>
+                <a class="nav-link" href="@Url.Action("Index", "Home")#sobreNos">Sobre</a>
                 <a href="#contato" class="nav-link">Contato</a>
+                <a class="nav-link" id="abrirModal" style="cursor: pointer">Avaliar</a>
             </div>
             
-            <button class="btn-mreservar">Minhas<br>Reservas</button>
+            <a id="abrirModalLogin" class="btn-mreservar">Minhas<br>Reservas</a>
 
-            <button class="btn-reservar">Reservar</button>
+            <a id="abrirModalReserva" class="btn-reservar">Reservar</a>
                 
         </nav>
     </header>
 
     <main>
-        @RenderBody()
+        @RenderBody()        
     </main>
+    <partial name="PartialViewModais/_ModalReserva"/>
+    <partial name="PartialViewModais/_ModalAvaliacao" />
+    <partial name="PartialViewModais/_ModalLogin" />
+    <partial name="PartialViewModais/_ModalListaReservas" />
+    
     <!-- Rodapé -->
     <footer class="footer">
         <p>
@@ -38,9 +46,15 @@
         </p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Reservas/Reservas.js"></script>
+    <script src="~/js/Reservas/MinhasReservasLogin.js"></script>
+    <script src="~/js/Reservas/utilitarioReservas.js"></script>
+    <script src="~/js/Avaliacao/Avaliacao.js"></script>
+    <script src="~/js/Avaliacao/utilitarioAvaliacao.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

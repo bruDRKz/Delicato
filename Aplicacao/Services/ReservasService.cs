@@ -21,7 +21,7 @@ namespace DelicatoProject.Aplicacao.Services
         }        
         public Task<List<Reservas>> ObterReservasPorDataEHorario(DateTime data, string horario) => _reservasRepository.ObterReservasPorDataEHorario(data, horario);
         public Task<List<Reservas>> ObterReservasPorDataGeral(DateTime data) => _reservasRepository.ObterReservasPorDataGeral(data);
-        public Task<Reservas?> ObterReservasPorUsuario(int idUsuario) => _reservasRepository.ObterReservaPorId(idUsuario);
+        public Task<List<Reservas>> ObterReservasPorUsuario(int idUsuario) => _reservasRepository.ObterReservasPorUsuario(idUsuario);
         public Task<List<Reservas>> ObterTodasReservasGeral() =>  _reservasRepository.ObterTodasReservas();
         public async Task<(bool Sucesso, string Mensagem)> DeletarReserva(int idReserva)
         {
@@ -49,7 +49,7 @@ namespace DelicatoProject.Aplicacao.Services
         }
         public async Task<(bool Sucesso, string Mensagem)> BloquearData(DateTime data, string motivo)
         {
-            bool dataJaEstaBloqueada = await _reservasRepository.DataEstaBloqueada(data);
+            bool dataJaEstaBloqueada = await _reservasRepository.DataEstaBloqueada(data.ToString("dd/MM/yyyy"));
             if (dataJaEstaBloqueada)
                 return (false, "Data já está bloqueada!");
 
@@ -65,17 +65,16 @@ namespace DelicatoProject.Aplicacao.Services
             return (true, "Data bloqueada com sucesso!");
         }
 
-
-        private (bool Sucesso, string Mensagem)ReservaPodeSerCadastrada(Reservas reserva)
+        private (bool Sucesso, string Mensagem) ReservaPodeSerCadastrada(Reservas reserva)
         {
-            bool dataBloqueada = _reservasRepository.DataEstaBloqueada(DateTime.Parse(reserva.DataReserva)).Result;
+            bool dataBloqueada = _reservasRepository.DataEstaBloqueada(reserva.DataReserva).Result;
             if (dataBloqueada)
                 return (false, "Data indisponível para novas reservas.");
 
-            var reservaExistente = _reservasRepository.ObterReservaPorDataEUsuario(DateTime.Parse(reserva.DataReserva), reserva.IdUsuario).Result;
+            var reservaExistente = _reservasRepository.ObterReservaPorDataEUsuario(reserva.DataReserva, reserva.IdUsuario).Result;
             if (reservaExistente != null)
                 return (false, "Usuário ja possuí uma reserva para esta data.");
-            
+
             return (true, "Reserva criada com sucesso.");
         }
     }

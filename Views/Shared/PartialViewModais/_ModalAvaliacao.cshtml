@@ -1,0 +1,36 @@
+﻿<div id="modalAvaliacao" class="modal">
+	<div class="modal-conteudo">
+
+		<span id="fecharModal" class="modal-fechar">&times;</span>
+
+		<div class="card-avaliacao">
+			<h2 class="titulo">Deixe sua Avaliação</h2>
+
+			<form class="avaliacao-form">
+				<label>
+					Seu nome
+					<input id="inputNomeAvaliacao" type="text" placeholder="Digite seu nome">
+				</label>
+
+				<label>
+					Nota
+					<div class="estrelas" id="estrelas-avaliacao">
+						<span data-value="1">★</span>
+						<span data-value="2">★</span>
+						<span data-value="3">★</span>
+						<span data-value="4">★</span>
+						<span data-value="5">★</span>
+					</div>
+				</label>
+				<input type="hidden" id="notaInput" name="nota" value="0" />
+				<label>
+					Comentário
+					<textarea id="textAreaComentarioAvaliacao" placeholder="Conte como foi sua experiência"></textarea>
+				</label>
+
+				<button type="submit" class="btn-enviar">Enviar Avaliação</button>
+			</form>
+		</div>
+
+	</div>
+</div>

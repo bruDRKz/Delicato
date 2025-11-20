@@ -1,0 +1,42 @@
+﻿<!-- Modal Lista de Reservas -->
+<div id="modalListaReservas" class="modal">
+    <div class="modal-conteudo">
+
+        <span id="fecharModalLista" class="modal-fechar">&times;</span>
+
+        <div class="card-lista-reservas">
+            <h2 class="titulo">Minhas Reservas</h2>
+
+            <div id="listaReservasConteudo">
+                <!-- JS irá popular aqui uma lista de reservas -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const modalListaReservas = document.getElementById("modalListaReservas");
+    const fecharModalLista = document.getElementById("fecharModalLista");
+
+    
+    // Fechar pelo X
+    fecharModalLista.onclick = () => {
+        modalListaReservas.style.display = "none";
+    };
+
+    // Fechar clicando fora do conteúdo
+    window.addEventListener("click", function (e) {
+        if (e.target === modalListaReservas) {
+            modalListaReservas.style.display = "none";
+        }
+    });
+
+    // Fechar com ESC
+    window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modalListaReservas.style.display === "flex") {
+            modalListaReservas.style.display = "none";
+        }
+    });
+
+</script>
