@@ -13,26 +13,26 @@ namespace DelicatoProject.Controllers
 
         //Ações do usuário - criar reserva, ver reservas, deletar reserva
         [HttpPost]
-        public async Task<IActionResult> CriarReserva([FromBody] ReservasDTO reservaDto)
+        public async Task<JsonResult> CriarReserva(ReservasDTO reservaDto)
         {
             try
             {
                 var reserva = reservaDto.ToEntity();
                 var reservaCriada = await _reservasService.CriarNovaReserva(reserva);
-                return Ok(reservaCriada);
+                return Json(new { Sucesso = reservaCriada.Sucesso, Mensagem = reservaCriada.Mensagem });
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-        [HttpGet]
-        public async Task<IActionResult> ObterReservasPorUsuario(int idUsuario)
+        [HttpPost]
+        public async Task<JsonResult> ObterReservasPorUsuario(int idUsuario)
         {
             try
             {
                 var reservas = await _reservasService.ObterReservasPorUsuario(idUsuario);
-                return Ok(reservas);
+                return Json(reservas);
             }
             catch (Exception e)
             {
