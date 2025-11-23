@@ -90,7 +90,7 @@ Nessa área é possível:
 
 ## 🧩 Tecnologias Utilizadas
 
-- **Linguagem:** C#  
+- **Linguagem:** C# / JavaScript (Combinados ao HTML e CSS)
 - **Framework:** .NET 8 / ASP.NET Core  
 - **Banco de dados:** SQL Server (hospedado na Azure)  
 - **Hospedagem do banco:** Microsoft Azure  
