@@ -10,23 +10,28 @@ namespace DelicatoProject.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdAvaliacao { get; set; }
 
-        [ForeignKey("Usuario")]
-        public int IdUsuario { get; set; }  //FK da tabela Usuario
+        
+        [MaxLength(100)]
         public string Nome { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;   
 
+        [Required]
+        public int Nota { get; set; }
+
+        [Required]
         [MaxLength(1000)]
         public string Comentario { get; set; } = string.Empty;
-        public Usuario Usuario { get; set; } = null!; // Propriedade de navegação — Para o relacionamento com a tabela Usuario
 
-        public Avaliacao() {}
+        public DateTime DataAvaliacao { get; set; } = DateTime.Now;
 
-        public Avaliacao(int idUsuario, string nome, string email, string comentario)
+        public Avaliacao() { }
+
+        public Avaliacao(string nome, int nota, string comentario)
         {
-            IdUsuario = idUsuario;
             Nome = nome;
-            Email = email;
+            Nota = nota;
             Comentario = comentario;
+            DataAvaliacao = DateTime.Now;
         }
     }
 }
+

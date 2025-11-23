@@ -1,0 +1,10 @@
+﻿@model List<string>
+
+<div class="carrossel-container">
+    <div class="carrossel-wrapper">
+        @foreach (var img in Model)
+        {
+            <img src="@img" class="carrossel-img" alt="">
+        }
+    </div>
+</div>

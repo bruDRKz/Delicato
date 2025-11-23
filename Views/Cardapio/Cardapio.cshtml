@@ -1,0 +1,66 @@
+﻿@{
+	ViewData["Title"] = "Cardápio - DELICATO";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/cardapio.css" />
+<link rel="stylesheet" href="~/css/carrossel.css" />
+<script src="~/js/Cardapio/carrossel.js" defer></script>
+<script src="~/js/Cardapio/Cardapio.js" defer></script>
+
+<main>
+	<div id="cardapioLoader" style="text-align:center; margin-top:40px; display: none;">
+		<span class="loader"></span>
+	</div>
+
+
+	<!-- ==================== COMIDAS ==================== -->
+	<section class="cardapio comidas">
+		<div class="card">
+			<img src="/assets/imagens/logotipocolorido.png" alt="Logo Delicato" class="logo-card" />
+
+			<h2>Comidas</h2>
+
+			<!-- JS vai montar todos os blocos de categorias de comida aqui -->
+			<div class="menus-comidas" id="menusComidas"></div>
+
+			<!-- JS pode montar o carrossel de bebidas com base nas ImagemUrl -->
+			<div class="area-carrossel">
+				@await Html.PartialAsync("_Carrossel", new List<string> {
+				"/assets/imagens/lanche.jpg",
+								"/assets/imagens/espetos.jpg",
+								"/assets/imagens/lanche2.jpg",
+								"/assets/imagens/lanche4.jpg",
+								"/assets/imagens/espetos2.jpg",
+								"/assets/imagens/lanche3.jpg"
+								})
+			</div>
+		</div>
+	</section>
+
+	<!-- ==================== BEBIDAS ==================== -->
+	<section class="cardapio bebidas">
+		<div class="card">
+			<img src="/assets/imagens/logotipocolorido.png" alt="Logo Delicato" class="logo-card" />
+
+			<h2>Bebidas</h2>
+
+			<!-- Mantém a estrutura de duas colunas e JS preenche dentro delas -->
+			<div class="menus-bebidas">
+				<div class="coluna-esquerda" id="colunaBebidasEsquerda"></div>
+				<div class="coluna-direita" id="colunaBebidasDireita"></div>
+			</div>
+			<div class="area-carrossel">
+				@await Html.PartialAsync("_Carrossel", new List<string> {
+								"/assets/imagens/bebida1.jpg",
+								"/assets/imagens/bebida2.jpg",
+								"/assets/imagens/bebida3.jpg",
+								"/assets/imagens/bebida4.jpg",
+								"/assets/imagens/bebida5.jpg",
+								"/assets/imagens/bebida6.jpg"
+								})
+			</div>
+			
+		</div>
+	</section>
+</main>

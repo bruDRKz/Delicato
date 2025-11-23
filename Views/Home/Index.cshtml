@@ -1,8 +1,95 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Início";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero-container">
+    <!-- Fundo -->
+    <div class="hero-background">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="hero-content">
+        <div class="main-content">
+            <div class="content-wrapper">
+                <h2 class="hero-title">
+                    Gelada, <span class="italic">artesanal</span><br />
+                    e sem frescura.
+                </h2>
+
+                <!-- Logo Central -->
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <img src="/assets/imagens/LOGO.png"
+                             alt="DELICATO Tap House Logo" class="logo-image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mouse Animado -->
+        <div class="mouse-scroll">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            
+        </div>
+
+        <!-- Ícone do Instagram -->
+        <a href="https://www.instagram.com/delicatotaphouse/" target="_blank" class="instagram-button">
+            <img src="/assets/imagens/instagram.png"
+                 alt="Instagram" class="instagram-icon" />
+        </a>
+    </div>
 </div>
+
+<!-- Seção Laranja -->
+<section class="taps-section">
+    <div class="taps-content">
+        <div class="taps-text">
+            <h2 class="taps-title">9 Taps Rotativos</h2>
+            <p class="taps-description">
+                O Delicato Tap House é um local para apaixonados por cerveja, temos opções para todos os gostos.
+                São 9 taps rotativos com diversos estilos diferentes para experimentar.
+            </p>
+        </div>
+        <div class="taps-image">
+            <img src="/assets/imagens/copo.png" width="479" height="546"
+                 alt="Copo de cerveja">
+        </div>
+    </div>
+</section>
+
+<!-- Seção Cardapio -->
+<section class="cardap-section">
+    <div class="cardap-content">
+        <div class="cardap-image">
+            <img src="/assets/imagens/batata.png" width="479" height="460"
+                 alt="batata">
+        </div>
+        <div class="cardap-text">
+            <p class="cardap-description">
+                As diversas opções do nosso cardápio foram pensadas para ir bem com qualquer tipo de chopp, dos amargos aos doces
+            </p>
+            <a class="cardap-link" asp-controller="Cardapio" asp-action="Cardapio">Cardápio Completo</a>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Sobre nós -->
+<section id="sobreNos" class="sobre-section">
+    <div class="sobre-content">
+        <div class="sobre-text">
+            <h2 class="sobre-title">Sobre Nós:</h2>
+            <p class="sobre-description">
+                Delicato Tap House, fundado em 2016, tem como diferencial servir uma cerveja de qualidade,
+                em um ambiente agradável e confortável para se reunir com amigos e família, prezando um atendimento atencioso e proativo.
+            </p>
+        </div>
+        <div class="sobre-image">
+            <img src="/assets/imagens/delicatao.png" width="479" height="460"
+                 alt="delicato">
+        </div>
+    </div>
+</section>

@@ -12,7 +12,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DelicatoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-
+builder.Services.AddScoped<ICardapioService, CardapioService>();
+builder.Services.AddScoped<ICardapioBebidaRepository, CardapioBebidaRepository>();
+builder.Services.AddScoped<ICardapioComidaRepository, CardapioComidaRepository>();
+builder.Services.AddScoped<IReservasRepository, ReservasRepository>();
+builder.Services.AddScoped<IReservasService, ReservasService>();
+builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+builder.Services.AddScoped<IAvaliacaoService, AvaliacaoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,6 +31,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Assets")),
+    RequestPath = "/assets"
+});
 
 app.UseRouting();
 

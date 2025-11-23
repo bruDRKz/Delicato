@@ -18,6 +18,10 @@ namespace DelicatoProject.Controllers
             return View();
         }        
 
+        public IActionResult Administrativo()
+        {
+            return View("Administrativo");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,5 +1,25 @@
+
+/* Carregar fonte Mulish */
+/*@font-face {
+    font-family: 'Mulish';
+    src: url('~/fonts/Mulish-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/* Carregar fonte Museo700 */
+/*@font-face {
+    font-family: 'Museo700';
+    src: url('~/fonts/Museo700-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {

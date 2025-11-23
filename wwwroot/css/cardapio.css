@@ -1,0 +1,348 @@
+﻿/* ==================== BASE ==================== */
+body {
+    margin: 0;
+/*    font-family: 'Museo700';*/
+    background: linear-gradient(to bottom, #EFB73D, #D06D00);
+    color: #fff;
+}
+
+main {
+    padding: 60px;
+}
+
+.cardapio {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+
+
+/* ==================== CARD ==================== */
+.card {
+    position: relative;
+    background: #111;
+    border-radius: 35px;
+    width: 100%;
+    max-width: 1350px;
+    padding: 240px 40px 60px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+}
+
+/* ==================== LOGO E TÍTULO ==================== */
+.logo-card {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.card h2 {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 61px;
+    margin: 0;
+}
+
+
+
+/* ==================== GRID COMIDAS ==================== */
+.menus-comidas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+/* ==================== ALTURAS ESPECÍFICAS DAS COLUNAS ==================== */
+
+/*Tirei a barra de rolagem e comentei o overflow, não estava harmonico com o projeto*/
+/* Espetos Tradicionais */
+.menu-coluna-wrapper.espetos-tradicionais .menu-coluna {
+    max-height: 481px;
+    /*overflow-y: auto;*/
+}
+
+/* Porções Individuais */
+.menu-coluna-wrapper.porcoes-individuais .menu-coluna {
+    max-height: 255px;
+    /*overflow-y: auto;*/
+}
+
+/* Espetos Especiais */
+.menu-coluna-wrapper.espetos-especiais .menu-coluna {
+    max-height: 370px;
+    /*overflow-y: auto;*/
+}
+
+/* Lanches */
+.menu-coluna-wrapper.lanches .menu-coluna {
+    max-height: 332px;
+    /*overflow-y: auto;*/
+}
+/* ===== BEBIDAS ===== */
+
+/* Não Alcoólicas */
+.menu-coluna-wrapper.nao-alcoolicas .menu-coluna {
+    max-height: 370px;
+    /*overflow-y: auto;*/
+}
+
+/* Cervejas */
+.menu-coluna-wrapper.cervejas .menu-coluna {
+    max-height: 255px;
+    /*overflow-y: auto;*/
+}
+
+/* Doses */
+.menu-coluna-wrapper.doses .menu-coluna {
+    max-height: 370px;
+    /*overflow-y: auto;*/
+}
+
+/* Drinks */
+.menu-coluna-wrapper.drinks .menu-coluna {
+    max-height: 283px;
+    /*overflow-y: auto;*/
+}
+
+/* Caipirinhas */
+.menu-coluna-wrapper.caipirinhas .menu-coluna {
+    max-height: 235px;
+    /*overflow-y: auto;*/
+}
+
+/* ==================== GRID BEBIDAS ==================== */
+.menus-bebidas {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.coluna-esquerda,
+.coluna-direita {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* ==================== WRAPPER PADRÃO ==================== */
+.menu-coluna-wrapper {
+    position: relative;
+}
+
+    .menu-coluna-wrapper.indicador::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 40px; /* altura do indicador */
+        pointer-events: none;
+        background: linear-gradient(to top, #111 60%, transparent);
+    }
+
+
+
+    .menu-coluna-wrapper h3 {
+/*        font-family: 'Museo700';*/
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #d68023;
+        width: 85%;
+        padding: 6px 0;
+        border-radius: 6px;
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        white-space: nowrap;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+.menu-coluna {
+/*    font-family: 'Mulish';*/
+    background: #111;
+    font-size: 30px;
+    border: 3px solid #fff;
+    border-radius: 45px;
+    padding: 25px;
+    line-height: 1;
+    box-shadow: 0 0 1px rgba(0,0,0,0.4);
+}
+
+    .menu-coluna ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-coluna li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 28px;
+        margin: 10px 0;
+    }
+
+.swal2-loader-popup .loader {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border: 5px solid #EFB73D;
+    border-bottom-color: #111;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-top: 18px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+/* ==================== MOBILE (até 900px) ==================== */
+@media (max-width: 900px) {
+    main {
+        padding: 16px 0;
+    }
+
+    .cardapio {
+        margin-bottom: 24px;
+    }
+
+    /* Card empilha conteúdo, centraliza e remove position absoluta */
+    .card {
+        width: 98vw;
+        max-width: 480px;
+        margin: 0 auto 28px auto;
+        border-radius: 26px;
+        padding: 24px 4vw 24px;
+        box-sizing: border-box;
+        position: static; /* não mais absoluto */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+    }
+
+    /* Logo centralizada, topo do card */
+    .logo-card {
+        position: static !important;
+        display: block;
+        margin: 0 auto 12px auto;
+        width: 64px;
+        height: 64px;
+        border-radius: 22px;
+        object-fit: cover;
+    }
+
+    /* Título fica sob logo, centralizado e no fluxo normal */
+    .card h2 {
+        position: static !important;
+        font-size: 1.45rem;
+        margin: 0 0 14px 0;
+        text-align: center;
+        line-height: 1.2;
+        top: unset !important;
+        left: unset !important;
+        transform: none !important;
+    }
+
+    /* Cards de comidas/bebidas empilhadas */
+    .menus-comidas,
+    .menus-bebidas {
+        display: block;
+        width: 100%;
+        gap: 0;
+        margin-top: 14px;
+    }
+
+    .menu-coluna-wrapper {
+        width: 100%;
+        margin-bottom: 30px;
+        box-sizing: border-box;
+    }
+
+        .menu-coluna-wrapper h3 {
+            font-size: 19px;
+            padding: 7px 7vw;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #d68023;
+            width: 85vw;
+            min-width: unset;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+            position: relative; /* para garantir fluidez */
+        }
+
+    .menu-coluna {
+        font-size: 15px;
+        padding: 11px 5vw;
+        border-radius: 30px;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+        .menu-coluna ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-coluna li {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 1.03rem;
+            margin: 10px 0;
+            word-break: break-word;
+            line-height: 1.4;
+            flex-wrap: wrap;
+        }
+
+            .menu-coluna li span {
+                min-width: 52px;
+                text-align: right;
+                white-space: nowrap;
+                font-size: 1.03rem;
+                color: #efb73d;
+                font-weight: 600;
+                padding-left: 10px;
+                flex-shrink: 0;
+            }
+
+    /* Altura automática */
+    .menu-coluna-wrapper .menu-coluna {
+        max-height: unset !important;
+        overflow: visible !important;
+    }
+
+    /* Colunas das bebidas em bloco */
+    .coluna-esquerda,
+    .coluna-direita {
+        width: 100%;
+        gap: 0;
+        display: block;
+    }
+
+    /* Escondo o carrossel no mobile, porque não combina com a tela pequena */
+    .area-carrossel {
+        display: none !important;
+    }
+}
