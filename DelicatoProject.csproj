@@ -19,4 +19,34 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\fonts\Mulish-VariableFont_wght.ttf" />
+    <None Include="wwwroot\fonts\Museo700-Regular.otf" />
+    <None Include="wwwroot\imagens\artesanal.png" />
+    <None Include="wwwroot\imagens\batata.png" />
+    <None Include="wwwroot\imagens\bebida1.jpg" />
+    <None Include="wwwroot\imagens\bebida2.jpg" />
+    <None Include="wwwroot\imagens\bebida3.jpg" />
+    <None Include="wwwroot\imagens\bebida4.jpg" />
+    <None Include="wwwroot\imagens\bebida5.jpg" />
+    <None Include="wwwroot\imagens\bebida6.jpg" />
+    <None Include="wwwroot\imagens\copo.png" />
+    <None Include="wwwroot\imagens\delicatao.png" />
+    <None Include="wwwroot\imagens\espetos.jpg" />
+    <None Include="wwwroot\imagens\espetos2.jpg" />
+    <None Include="wwwroot\imagens\instagram.png" />
+    <None Include="wwwroot\imagens\lanche.jpg" />
+    <None Include="wwwroot\imagens\lanche2.jpg" />
+    <None Include="wwwroot\imagens\lanche3.jpg" />
+    <None Include="wwwroot\imagens\lanche4.jpg" />
+    <None Include="wwwroot\imagens\LOGO.png" />
+    <None Include="wwwroot\imagens\logotipocolorido.png" />
+    <None Include="wwwroot\imagens\pattern_trigo_1_1.png" />
+    <None Include="wwwroot\imagens\urquell.png" />
+  </ItemGroup>
+
 </Project>

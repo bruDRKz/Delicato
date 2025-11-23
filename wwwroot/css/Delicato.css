@@ -29,7 +29,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/imagens/urquell.png");
+    background-image: url("/imagens/urquell.png");
     background-position: center;
     background-size: cover;
 }
@@ -211,7 +211,7 @@ a {
     width: 100%;
     height: 581px;
     background-color: #d06D00;
-    background-image: url("/assets/imagens/pattern_trigo_1_1.png");
+    background-image: url("/imagens/pattern_trigo_1_1.png");
     background-repeat: repeat;
     background-position: center;
     display: flex;
