@@ -18,11 +18,11 @@ Este é um projeto desenvolvido como trabalho final da disciplina **Projeto Inte
 
 - Bruno Carvalho Rodrigues – Responsável pelo desenvolvimento Back-end, Front-End,Banco de Dados, Arquitetura e Deploy
 
-**Front-end**
+**Front-end - UX/UI**
 
 - Gustavo Zanuzzi Vicente – Front-end  
 - Felipe Nogueira Silva – Front-end  
-- Nicolas Myiasaka Oliveira – Front-end  
+- Nicolas Miyasaka Oliveira – Front-end - UX/UI
 - Gabriel Oliveira – Front-end  
 - Raul Bossi – Front-end  
 
