@@ -14,9 +14,9 @@ Este é um projeto desenvolvido como trabalho final da disciplina **Projeto Inte
 
 ## 👨‍💻 Equipe de Desenvolvimento
 
-**Back-end / Banco de Dados / Arquitetura / Deploy**
+**Back-end / Banco de Dados / Arquitetura / Deploy / Front-End**
 
-- Bruno Carvalho Rodrigues – Responsável pelo desenvolvimento Back-end, Banco de Dados, Arquitetura e Deploy
+- Bruno Carvalho Rodrigues – Responsável pelo desenvolvimento Back-end, Front-End,Banco de Dados, Arquitetura e Deploy
 
 **Front-end**
 
