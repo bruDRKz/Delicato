@@ -9,5 +9,20 @@
         public int IdCategoria { get; set; }
         public string? ImagemUrl { get; set; } = string.Empty;
         public bool Disponivel { get; set; }
+
+        public Models.CardapioComidas ToEntity()
+        {
+            return new Models.CardapioComidas
+            {
+                IdComida = this.IdComida,
+                NomeComida = this.NomeComida,
+                DescricaoComida = this.DescricaoComida,
+                Preco = this.Preco,
+                IdCategoria = this.IdCategoria,
+                ImagemUrl = this.ImagemUrl,
+                Disponivel = this.Disponivel
+            };
+        }
     }
+
 }

@@ -1,0 +1,27 @@
+﻿.carrossel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrossel-wrapper {
+    display: flex;
+    gap: 5px; /* gap entre imagens */
+}
+
+.carrossel-img {
+    width: 285px;
+    height: 285px;
+    object-fit: cover;
+    flex-shrink: 0; /* impede imagens de encolher */
+}
+
+
+
+.area-carrossel {
+    margin-top: 60px; /* aumenta a distância */
+    margin-bottom: -20px;
+}
+
+.comidas .carrossel-img {
+    object-position: bottom; /* foca na parte inferior da imagem */
+}

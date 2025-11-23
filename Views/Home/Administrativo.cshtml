@@ -1,0 +1,148 @@
+﻿<link href="~/css/Administrativo.css" rel="stylesheet" />
+
+
+
+<div class="adm-container">
+	<div id="cardapioLoader" style="text-align:center; margin-top:40px; display: none;">
+		<span class="loader"></span>
+	</div>
+
+	<div class="adm-filtros">
+		<div class="filtro-data">
+			<label for="dataInicio">Início:</label>
+			<input type="date" id="dataInicio" />
+			<label for="dataFim">Fim:</label>
+			<input type="date" id="dataFim" />
+		</div>
+		<button id="btnBloquearData" class="btn-bloquear-data">Bloquear Data</button>
+		<button class="btn-aplicar-filtros" title="Aplicar Filtros">
+			<i class="fa fa-search"></i>
+		</button>
+
+	</div>
+
+
+	<h3 class="adm-subtitulo">Reservas filtradas</h3>
+	<div class="grid-reservas">
+		<!-- JS irá injetar cards de reservas horizontalmente aqui -->
+	</div>
+
+	<h3 class="adm-subtitulo">Itens do cardápio</h3>
+	<div class="adm-cardapio-filtros">
+		<select id="tipoFiltro">
+			<option value="">Comida/Bebida</option>
+			<option value="comida">Comida</option>
+			<option value="bebida">Bebida</option>
+		</select>
+		<button id="btnAbrirModalAdicionarItem" class="btn-adicionar-item">
+			Adicionar Item
+		</button>
+	</div>
+	<div class="grid-cardapio">
+		<!-- JS irá injetar cards de itens aqui -->
+	</div>
+</div>
+
+<!--Modal de adicionar item do cardapio-->
+
+<div id="modalAdicionarItem" class="modal">
+	<div class="modal-conteudo">
+		<span id="fecharModalAdicionarItem" class="modal-fechar">&times;</span>
+		<div class="form-container">
+			<h2>Adicionar Item ao Cardápio</h2>
+			<form id="formAdicionarItem">
+				<label>Nome:</label>
+				<input id="inputNomeItem" type="text" placeholder="Digite o nome do item" required>
+
+				<label>Descrição:</label>
+				<textarea id="inputDescricaoItem" placeholder="Descreva o item" required></textarea>
+
+				<label>Preço:</label>
+				<input id="inputPrecoItem" type="text" placeholder="Preço (ex: 12,90)"  required>
+
+
+				<label>Categoria:</label>
+				<select id="inputCategoriaItem" required>
+					<option value="">Selecione uma categoria</option>
+					<option value="8">Espetos Tradicionais</option>
+					<option value="9">Espetos Especiais</option>
+					<option value="10">Porções Individuais</option>
+					<option value="11">Lanches</option>
+					<option value="12">Não Alcoólicos</option>
+					<option value="13">Cervejas</option>
+					<option value="14">Doses</option>
+					<option value="15">Drinks</option>
+					<option value="16">Caipirinhas</option>
+				</select>
+				<label>
+					<input id="inputDisponivelItem" type="checkbox" checked>
+					Disponível
+				</label>
+
+				<label>Comida ou Bebida:</label>
+				<select id="selectTipoItem" required>
+					<option value="">Selecione</option>
+					<option value="Comida">Comida</option>
+					<option value="Bebida">Bebida</option>
+				</select>
+
+				<button class="btn" type="submit">Adicionar</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--Modal editar item no cardapio-->
+
+<div id="modalEditarItem" class="modal">
+	<div class="modal-conteudo">
+		<span id="fecharModalEditarItem" class="modal-fechar">&times;</span>
+		<div class="form-container">
+			<h2>Editar Item do Cardápio</h2>
+			<form id="formEditarItem">
+				<label>Nome:</label>
+				<input id="editNomeItem" type="text" required>
+
+				<label>Descrição:</label>
+				<textarea id="editDescricaoItem" required></textarea>
+
+				<label>Preço:</label>
+				<input id="editPrecoItem" type="text" required>
+
+				<label>Categoria:</label>
+				<select id="editCategoriaItem" required>
+					<option value="">Selecione uma categoria</option>
+					<option value="8">Espetos Tradicionais</option>
+					<option value="9">Espetos Especiais</option>
+					<option value="10">Porções Individuais</option>
+					<option value="11">Lanches</option>
+					<option value="12">Não Alcoólicos</option>
+					<option value="13">Cervejas</option>
+					<option value="14">Doses</option>
+					<option value="15">Drinks</option>
+					<option value="16">Caipirinhas</option>
+				</select>
+
+
+				<label>
+					<input id="editDisponivelItem" type="checkbox">
+					Disponível
+				</label>
+
+				<label>Comida ou Bebida:</label>
+				<select id="editTipoItem" required disabled>
+					<option value="">Selecione</option>
+					<option value="Comida">Comida</option>
+					<option value="Bebida">Bebida</option>
+				</select>
+
+				<button class="btn" type="submit">Salvar</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+<script src="~/js/Adm/administrativo.js"></script>
+<script src="~/js/Adm/manipularItensCardapio.js"></script>

@@ -7,27 +7,36 @@
     <link rel="stylesheet" href="~/css/delicato.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Modais.css"/>
     <link rel="stylesheet" href="~/css/HeaderFooterPersonalizados.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <header class="header">
         <nav class="nav">
             <h1 class="logo">DELICATO</h1>
 
-            <div class="nav-menu">
-                <a class="nav-link" asp-controller="Home" asp-action="Index">Início</a>
+            <!-- Botão hamburguer (hidden em telas grandes) -->
+            <button class="menu-toggle" id="btnMenuToggle" aria-label="Abrir menu" type="button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Layout original -->
+            <div class="nav-menu" id="navMenu">
+                <a id="btnHomeAdm" class="nav-link" asp-controller="Home" asp-action="Administrativo" style="display: none">Administrativo</a>
+                <a id="btnHome" class="nav-link" asp-controller="Home" asp-action="Index">Início</a>
                 <a class="nav-link" asp-controller="Cardapio" asp-action="Cardapio">Cardápio</a>
                 <a class="nav-link" href="@Url.Action("Index", "Home")#sobreNos">Sobre</a>
-                <a href="#contato" class="nav-link">Contato</a>
                 <a class="nav-link" id="abrirModal" style="cursor: pointer">Avaliar</a>
             </div>
-            
-            <a id="abrirModalLogin" class="btn-mreservar">Minhas<br>Reservas</a>
 
+            <a id="abrirModalLogin" class="btn-mreservar">Minhas<br>Reservas</a>
             <a id="abrirModalReserva" class="btn-reservar">Reservar</a>
-                
         </nav>
     </header>
+
 
     <main>
         @RenderBody()        
@@ -55,6 +64,8 @@
     <script src="~/js/Reservas/utilitarioReservas.js"></script>
     <script src="~/js/Avaliacao/Avaliacao.js"></script>
     <script src="~/js/Avaliacao/utilitarioAvaliacao.js"></script>
+    <script src="~/js/Cardapio/carrossel.js"></script>
+    <script src="~/js/Cardapio/utilitarioCardapio.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

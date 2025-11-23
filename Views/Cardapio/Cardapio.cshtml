@@ -1,120 +1,66 @@
 ﻿@{
-    ViewData["Title"] = "Cardápio - DELICATO";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Cardápio - DELICATO";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/cardapio.css">
+<link rel="stylesheet" href="~/css/cardapio.css" />
+<link rel="stylesheet" href="~/css/carrossel.css" />
+<script src="~/js/Cardapio/carrossel.js" defer></script>
+<script src="~/js/Cardapio/Cardapio.js" defer></script>
 
 <main>
-    <!-- Seção de Comidas -->
-    <section class="cardapio comidas">
-        <div class="card">
-            <img src="~/assets/logotipocolorido.png" alt="Logo Delicato" class="logo-card" />
-            <h2>Comidas</h2>
+	<div id="cardapioLoader" style="text-align:center; margin-top:40px; display: none;">
+		<span class="loader"></span>
+	</div>
 
-            <div class="menus-comidas">
-                <div class="menu-coluna menu-espetos-trad">
-                    <h3>Espetos Tradicionais</h3>
-                    <ul>
-                        <li>Alcatra <span>13,50</span></li>
-                        <li>Costela Angus <span>15,00</span></li>
-                        <li>Frango <span>11,00</span></li>
-                        <li>Linguiça <span>10,00</span></li>
-                        <li>Medalhão <span>12,50</span></li>
-                        <li>Tilápia <span>13,00</span></li>
-                    </ul>
-                </div>
 
-                <div class="menu-coluna menu-espetos-esp">
-                    <h3>Espetos Especiais</h3>
-                    <ul>
-                        <li>Jacaré <span>28,00</span></li>
-                        <li>Medalhão de Alcatra <span>20,00</span></li>
-                        <li>Picanha <span>23,00</span></li>
-                        <li>Coração <span>14,00</span></li>
-                        <li>Costelinha BBQ <span>25,00</span></li>
-                    </ul>
-                </div>
+	<!-- ==================== COMIDAS ==================== -->
+	<section class="cardapio comidas">
+		<div class="card">
+			<img src="/assets/imagens/logotipocolorido.png" alt="Logo Delicato" class="logo-card" />
 
-                <div class="menu-coluna menu-porcoes">
-                    <h3>Porções Individuais</h3>
-                    <ul>
-                        <li>Mini Pastel <span>25,90</span></li>
-                        <li>Torresmo <span>29,90</span></li>
-                        <li>Costelinha <span>37,90</span></li>
-                    </ul>
-                </div>
+			<h2>Comidas</h2>
 
-                <div class="menu-coluna menu-lanches">
-                    <h3>Lanches</h3>
-                    <ul>
-                        <li>Mortadela Cremal <span>35,90</span></li>
-                        <li>Hambúrguer Bacon <span>39,90</span></li>
-                        <li>Lanche de Frango <span>34,90</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+			<!-- JS vai montar todos os blocos de categorias de comida aqui -->
+			<div class="menus-comidas" id="menusComidas"></div>
 
-    <!-- Seção de Bebidas -->
-    <section class="cardapio bebidas">
-        <div class="card">
-            <img src="~/assets/logotipocolorido.png" alt="Logo Delicato" class="logo-card" />
-            <h2>Bebidas</h2>
+			<!-- JS pode montar o carrossel de bebidas com base nas ImagemUrl -->
+			<div class="area-carrossel">
+				@await Html.PartialAsync("_Carrossel", new List<string> {
+				"/assets/imagens/lanche.jpg",
+								"/assets/imagens/espetos.jpg",
+								"/assets/imagens/lanche2.jpg",
+								"/assets/imagens/lanche4.jpg",
+								"/assets/imagens/espetos2.jpg",
+								"/assets/imagens/lanche3.jpg"
+								})
+			</div>
+		</div>
+	</section>
 
-            <div class="menus-bebidas">
-                <!-- Coluna Esquerda -->
-                <div class="coluna-esquerda">
-                    <div class="menu-coluna">
-                        <h3>Não Alcoólicas</h3>
-                        <ul>
-                            <li>Água <span>5,00</span></li>
-                            <li>Refrigerante <span>8,00</span></li>
-                            <li>Suco Natural <span>10,00</span></li>
-                        </ul>
-                    </div>
+	<!-- ==================== BEBIDAS ==================== -->
+	<section class="cardapio bebidas">
+		<div class="card">
+			<img src="/assets/imagens/logotipocolorido.png" alt="Logo Delicato" class="logo-card" />
 
-                    <div class="menu-coluna">
-                        <h3>Doces</h3>
-                        <ul>
-                            <li>Brownie <span>8,00</span></li>
-                            <li>Petit Gateau <span>12,00</span></li>
-                        </ul>
-                    </div>
-                </div>
+			<h2>Bebidas</h2>
 
-                <!-- Coluna Direita -->
-                <div class="coluna-direita">
-                    <div class="menu-coluna">
-                        <h3>Cervejas</h3>
-                        <ul>
-                            <li>Corona <span>11,90</span></li>
-                            <li>Heineken <span>11,90</span></li>
-                            <li>Amstel <span>10,90</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="menu-coluna">
-                        <h3>Drinks</h3>
-                        <ul>
-                            <li>Aperol <span>35,90</span></li>
-                            <li>Negroni <span>36,90</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="menu-coluna">
-                        <h3>Caipirinhas</h3>
-                        <ul>
-                            <li>Caipirinha de Limão <span>27,90</span></li>
-                            <li>Caipirinha de Morango <span>28,90</span></li>
-                            <li>Caipirinha de Kiwi <span>28,90</span></li>
-                            <li>Caipirinha de Maracujá <span>28,90</span></li>
-                            <li>Caipirinha de Abacaxi <span>28,90</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+			<!-- Mantém a estrutura de duas colunas e JS preenche dentro delas -->
+			<div class="menus-bebidas">
+				<div class="coluna-esquerda" id="colunaBebidasEsquerda"></div>
+				<div class="coluna-direita" id="colunaBebidasDireita"></div>
+			</div>
+			<div class="area-carrossel">
+				@await Html.PartialAsync("_Carrossel", new List<string> {
+								"/assets/imagens/bebida1.jpg",
+								"/assets/imagens/bebida2.jpg",
+								"/assets/imagens/bebida3.jpg",
+								"/assets/imagens/bebida4.jpg",
+								"/assets/imagens/bebida5.jpg",
+								"/assets/imagens/bebida6.jpg"
+								})
+			</div>
+			
+		</div>
+	</section>
 </main>

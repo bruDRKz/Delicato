@@ -14,4 +14,6 @@ const inputDataReserva = () => {
 const inputObservacoes = () => {
     return document.getElementById('inputObservacoes');
 }
-
+const spanStatusReserva = () => {
+    return document.getElementById('spanStatusReserva');
+}

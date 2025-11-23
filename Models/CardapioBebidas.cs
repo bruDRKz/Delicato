@@ -13,7 +13,7 @@ namespace DelicatoProject.Models
         [Required]
         public string NomeBebida { get; set; } = string.Empty;
 
-        public string DescricaoBebida { get; set; } = string.Empty;
+        public string? DescricaoBebida { get; set; } = string.Empty;
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Preco { get; set; }
@@ -21,7 +21,7 @@ namespace DelicatoProject.Models
         [ForeignKey("Categoria")]
         public int IdCategoria { get; set; } // FK correta
 
-        public string ImagemUrl { get; set; } = string.Empty;
+        public string? ImagemUrl { get; set; } = string.Empty;
 
         public bool Disponivel { get; set; } = true;
 

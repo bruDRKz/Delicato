@@ -50,7 +50,8 @@ namespace DelicatoProject.Controllers
             try
             {
                 var autenticacao = usuarioService.AutenticarUsuario(telefone.Trim(), senha);
-                return Json(new { sucesso = autenticacao.Autenticado, ID = autenticacao.Id });
+                bool isAdmin = autenticacao.Autenticado && telefone.Trim().Equals("19983185071");
+                return Json(new { sucesso = autenticacao.Autenticado, ID = autenticacao.Id, admin = isAdmin });
             }
             catch (Exception e)
             {

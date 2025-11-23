@@ -39,7 +39,6 @@ document.querySelector("#modalReserva form").addEventListener("submit", function
         .then(response => response.json())
         .then(data => {
             const existeUsuario = data.Existe || data.existe;
-            alert(existeUsuario);
             const idUsuario = data.ID || data.Id || data.id; // o JSON sempre esta retornando minusculo, mas por precaução...
             
 
@@ -122,70 +121,6 @@ document.querySelector("#modalReserva form").addEventListener("submit", function
                 confirmButtonColor: '#facc15'
             });
         });
-
-    //// Monta o formData para buscar o usuário
-    //const formData = new FormData();
-    //formData.append('telefone', contato);
-
-    //// Tenta criar/recuperar usuário (sem senha)
-    //fetch('/Usuario/VerificarExistenciaUsuario', {
-    //    method: 'POST',
-    //    body: formData
-    //})
-    //    .then(response => response.json())
-    //    .then(data => {
-    //        if (data.sucesso) {
-    //            const idUsuario = data.ID || data.Id || data.id; // o JSON sempre esta retornando minusculo, mas por precaução...
-
-    //            if (!data.existe) {
-    //                // Se o usuário for novo, peça a senha e crie o usuário formalmente
-    //                Swal.fire({
-    //                    title: 'Crie uma senha para consultar suas reservas',
-    //                    input: 'password',
-    //                    inputLabel: 'Senha',
-    //                    inputPlaceholder: 'Digite uma senha',
-    //                    confirmButtonText: 'Confirmar',
-    //                    showCancelButton: true,
-    //                    inputAttributes: {
-    //                        minlength: 6,
-    //                        required: true,
-    //                        autocapitalize: 'off',
-    //                        autocorrect: 'off'
-    //                    },
-    //                    background: '#18181b',
-    //                    color: '#facc15',
-    //                    confirmButtonColor: '#facc15',
-    //                    cancelButtonColor: '#b91c1c',
-    //                    customClass: {
-    //                        title: 'swal-title-custom',
-    //                        inputLabel: 'swal-label-custom'
-    //                    }
-    //                }).then((result) => {
-    //                    if (result.isConfirmed && result.value) {
-    //                        // Agora sim adiciona o usuário com a senha
-    //                        const formDataSenha = new FormData();
-    //                        formDataSenha.append('nome', nome);
-    //                        formDataSenha.append('senha', result.value.trim());
-    //                        formDataSenha.append('telefone', contato);
-
-    //                        fetch('/Usuario/AdicionarUsuario', {
-    //                            method: 'POST',
-    //                            body: formDataSenha
-    //                        })
-    //                            .then(resp => resp.json())
-    //                            .then(finalData => {
-    //                                const finalIdUsuario = finalData.ID || finalData.Id || finalData.id;
-
-    //                                criarReserva(finalIdUsuario);
-    //                            });
-    //                    }
-    //                });
-    //            } else {
-    //                // Usuário já existe, segue fluxo sem pedir senha
-    //                criarReserva(idUsuario);
-    //            }
-    //        }
-    //    });
 
     // Função para criar a reserva
     function criarReserva(idUsuario) {

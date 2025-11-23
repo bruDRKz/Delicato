@@ -19,10 +19,8 @@ namespace DelicatoProject.Aplicacao.Services
             else            
                 return podeCadastrar;
         }        
-        public Task<List<Reservas>> ObterReservasPorDataEHorario(DateTime data, string horario) => _reservasRepository.ObterReservasPorDataEHorario(data, horario);
-        public Task<List<Reservas>> ObterReservasPorDataGeral(DateTime data) => _reservasRepository.ObterReservasPorDataGeral(data);
-        public Task<List<Reservas>> ObterReservasPorUsuario(int idUsuario) => _reservasRepository.ObterReservasPorUsuario(idUsuario);
-        public Task<List<Reservas>> ObterTodasReservasGeral() =>  _reservasRepository.ObterTodasReservas();
+        public Task<List<Reservas>> ObterReservasPorPeriodo(DateTime dataInicio, DateTime dataFim) => _reservasRepository.ObterReservasPorPeriodo(dataInicio, dataFim);        
+        public Task<List<Reservas>> ObterReservasPorUsuario(int idUsuario) => _reservasRepository.ObterReservasPorUsuario(idUsuario);       
         public async Task<(bool Sucesso, string Mensagem)> DeletarReserva(int idReserva)
         {
             var reservaExistente = await _reservasRepository.ObterReservaPorId(idReserva);
